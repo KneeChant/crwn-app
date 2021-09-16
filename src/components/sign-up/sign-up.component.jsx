@@ -1,22 +1,22 @@
-import React from "react";
-import FormInput from "../form-input/form-input.component";
-import CustomButton from "../custom-button/custom-button.component";
+import React from 'react';
+import FormInput from '../form-input/form-input.component';
+import CustomButton from '../custom-button/custom-button.component';
 
-import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
+import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 
-import "./sign-up.styles.scss";
+import './sign-up.styles.scss';
 
 class SignUp extends React.Component {
   constructor() {
     super();
     this.state = {
-      displayName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
+      displayName: '',
+      email: '',
+      password: '',
+      confirmPassword: ''
     };
   }
-  handleSubmit = async (event) => {
+  handleSubmit = async event => {
     event.preventDefault();
     const { displayName, email, password, confirmPassword } = this.state;
     if (password !== confirmPassword) {
@@ -31,16 +31,16 @@ class SignUp extends React.Component {
       );
       createUserProfileDocument(user, { displayName });
       this.setState({
-        displayName: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
+        displayName: '',
+        email: '',
+        password: '',
+        confirmPassword: ''
       });
     } catch (error) {
       console.error(error);
     }
   };
-  handleChange = (event) => {
+  handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
