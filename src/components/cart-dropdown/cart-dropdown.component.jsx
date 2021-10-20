@@ -5,11 +5,15 @@ import CartItem from '../cart-item/cart-item.component';
 import './cart-dropdown.styles.scss';
 
 const CartDropdown = ({ cartItems }) => (
-  <div className="cart-dropdown">
-    <div className="cart-items">
-      {cartItems.map(cartItem => (
-        <CartItem key={cartItem.id} item={cartItem} />
-      ))}
+  <div className='cart-dropdown'>
+    <div className='cart-items'>
+      {cartItems.length ? (
+        cartItems.map(cartItem => (
+          <CartItem key={cartItem.id} item={cartItem} />
+        ))
+      ) : (
+        <span className='empty-message'>Cart Is Empty</span>
+      )}
     </div>
     <CustomButton>Go to Checkout</CustomButton>
   </div>
