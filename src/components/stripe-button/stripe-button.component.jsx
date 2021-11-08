@@ -1,0 +1,29 @@
+import React from 'react';
+import StripeCheckout from 'react-stripe-checkout';
+
+const StripeCheckoutButton = ({ price }) => {
+  const priceForStripe = price * 100;
+  const publishableKey =
+    'pk_test_51JtV66SHlbPRFLzkPbvStL5zMG6KJJpCcMenKL24vXGWueqJUOJOZ2LHEWGzNoGAECCiGnNf5QV0YzkN1getOr5F00V9BPqzLY';
+
+  const onToken = token => {
+    console.log(token);
+  };
+
+  return (
+    <StripeCheckout
+      label='hey now'
+      name='CRWN Clothing Ltd.'
+      billingAddress
+      shippingAddress
+      image='http://svgshare.com/i/CUz.svg'
+      description={`Your total lis $${price}`}
+      amount={priceForStripe}
+      panelLabel='PayNow'
+      token={onToken}
+      stripeKey={publishableKey}
+    />
+  );
+};
+
+export default StripeCheckoutButton;
