@@ -9,7 +9,12 @@ import Header from './components/header/header.component';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.actions';
+import styled from 'styled-components';
 
+const Text = styled.div`
+  color: red;
+  font-size: 24px;
+`;
 class App extends React.Component {
   unsubscribefromAuth = null;
 
