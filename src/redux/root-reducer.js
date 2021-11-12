@@ -12,10 +12,12 @@ const persistConfig = {
   storage,
   whitelist: ['cart']
 };
+
 const rootReducer = combineReducers({
   user: userReducer,
   cart: cartReducer,
   directory: directoryReducer,
   shop: shopReducer
 });
+
 export default persistReducer(persistConfig, rootReducer);
